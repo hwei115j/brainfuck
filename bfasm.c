@@ -5,8 +5,9 @@ int main()
 {
     char ch;
 
-    printf("ORG 0\n");
-    printf("F:   DEC -1\n");
+    printf("ORG 100\n");
+    printf("F,   DEC -1\n");
+    printf("MASK,   DEC 255\n");
     while((ch = getchar()) != EOF)
     {
         switch(ch)
@@ -24,13 +25,15 @@ int main()
             case '+':
                 printf("\tLDA "START" I\n"\
                        "\tINC\n"\
+                       "\tAND MASK\n"
                        "\tSTA "START" I\n");
                 break;
-                printf("++*p;");
+    //            printf("++*p;");
                 break;
             case '-':
                 printf("\tLDA "START" I\n"\
                        "\tADD F\n"\
+                       "\tAND MASK\n"
                        "\tSTA "START" I\n");
                 break;
             case '.':
@@ -48,5 +51,6 @@ int main()
         }
     }
 
+    printf("\tHLT\n\tEND");
     return 0;
 }

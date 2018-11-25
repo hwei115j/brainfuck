@@ -5,9 +5,10 @@ int main()
     char ch;
 
     printf("#include <stdio.h>\n"\
+            "#include <stdint.h>\n"\
             "int main(){"\
-            "int arr[4096] = {};"\
-            "int *p = arr;");
+            "uint8_t arr[4096] = {};"\
+            "uint8_t *p = arr;");
     while((ch = getchar()) != EOF)
     {
         switch(ch)
