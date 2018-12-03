@@ -12,10 +12,6 @@ int main()
     int n = 0;
     struct mark mark[MAX];
 
-    printf("\t\tORG 1024\n");
-    printf("F,\t\tDEC -1\n");
-    printf("MASK,\tDEC 255\n");
-    printf("PTR,\tDEC 0\n");
     while((ch = getchar()) != EOF)
     {
         switch(ch)
@@ -56,11 +52,12 @@ int main()
                 //printf("*p=getchar();");
                 break;
             case '[':
-                mark[cont].m1 = cont*2;
-                mark[cont].m2 = cont*2 + 1;
+                mark[cont].m1 = n*2;
+                mark[cont].m2 = n*2 + 1;
                 printf("\t\tBUN L%d\n", mark[cont].m1);
-                printf("L%d,\t\tNOP\n", mark[cont].m2);
+                printf("L%d,", mark[cont].m2);
                 cont++;
+                n++;
                 //printf("while(*p){");
                 break;
             case ']':
@@ -73,6 +70,11 @@ int main()
         }
     }
 
-    printf("\t\tHLT\n\t\tEND");
+    printf("\t\tHLT\n");
+    printf("F,\t\tDEC -1\n");
+    printf("MASK,\tDEC 255\n");
+    printf("\t\tORG 3100\n");
+    printf("PTR,\tDEC 3105\n");
+    printf("\t\tEND\n");
     return 0;
 }
