@@ -31,14 +31,12 @@ int main()
             case '+':
                 printf("\t\tLDA PTR I\n"\
                        "\t\tINC\n"\
-                       "\t\tAND MASK\n"
                        "\t\tSTA PTR I\n");
                 //printf("++*p;");
                 break;
             case '-':
                 printf("\t\tLDA PTR I\n"\
                        "\t\tADD F\n"\
-                       "\t\tAND MASK\n"
                        "\t\tSTA PTR I\n");
                 break;
             case '.':
@@ -72,7 +70,6 @@ int main()
 
     printf("\t\tHLT\n");
     printf("F,\t\tDEC -1\n");
-    printf("MASK,\tDEC 255\n");
     printf("\t\tORG 3100\n");
     printf("PTR,\tDEC 3105\n");
     printf("\t\tEND\n");

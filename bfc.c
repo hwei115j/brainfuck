@@ -7,8 +7,8 @@ int main()
     printf("#include <stdio.h>\n"\
             "#include <stdint.h>\n"\
             "int main(){"\
-            "uint8_t arr[4096] = {};"\
-            "uint8_t *p = arr;");
+            "uint32_t arr[4096] = {};"\
+            "uint32_t *p = arr;");
     while((ch = getchar()) != EOF)
     {
         switch(ch)
