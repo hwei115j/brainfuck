@@ -4,7 +4,6 @@ struct mark
 {
     int m1, m2;
 };
-
 int main()
 {
     int ch;
@@ -23,7 +22,7 @@ int main()
                     printf("\t\tINC\n");
                 ungetc(ch, stdin);
                 printf("\t\tSTA PTR\n");
-                //printf("--p;");
+                //printf("++p;");
                 break;
             case '<':
                 printf("\t\tLDA PTR\n");
@@ -50,6 +49,7 @@ int main()
                     printf("\t\tADD F\n");
                 ungetc(ch, stdin);
                 printf("\t\tSTA PTR I\n");
+                //printf("--*p;");
                 break;
             case '.':
                 printf("\t\tLDA PTR I\n"\
@@ -79,7 +79,6 @@ int main()
                 break;
         }
     }
-
     printf("\t\tHLT\n");
     printf("F,\t\tDEC -1\n");
     printf("\t\tORG 3100\n");
