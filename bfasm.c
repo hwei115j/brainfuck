@@ -7,7 +7,7 @@ struct mark
 
 int main()
 {
-    char ch;
+    int ch;
     int cont = 0;
     int n = 0;
     struct mark mark[MAX];
@@ -17,27 +17,39 @@ int main()
         switch(ch)
         {
             case '>':
-                printf("\t\tLDA PTR\n"\
-                       "\t\tINC\n"\
-                       "\t\tSTA PTR\n");
+                printf("\t\tLDA PTR\n");
+                printf("\t\tINC\n");
+                while((ch = getchar()) == '>')
+                    printf("\t\tINC\n");
+                ungetc(ch, stdin);
+                printf("\t\tSTA PTR\n");
                 //printf("--p;");
                 break;
             case '<':
-                printf("\t\tLDA PTR\n"\
-                       "\t\tADD F\n"\
-                       "\t\tSTA PTR\n");
+                printf("\t\tLDA PTR\n");
+                printf("\t\tADD F\n");
+                while((ch = getchar()) == '<')
+                    printf("\t\tADD F\n");
+                ungetc(ch, stdin);
+                printf("\t\tSTA PTR\n");
                 //printf("--p;");
                 break;
             case '+':
                 printf("\t\tLDA PTR I\n"\
-                       "\t\tINC\n"\
-                       "\t\tSTA PTR I\n");
+                       "\t\tINC\n");
+                while((ch = getchar()) == '+')
+                    printf("\t\tINC\n");
+                ungetc(ch, stdin);
+                printf("\t\tSTA PTR I\n");
                 //printf("++*p;");
                 break;
             case '-':
                 printf("\t\tLDA PTR I\n"\
-                       "\t\tADD F\n"\
-                       "\t\tSTA PTR I\n");
+                       "\t\tADD F\n");
+                while((ch = getchar()) == '-')
+                    printf("\t\tADD F\n");
+                ungetc(ch, stdin);
+                printf("\t\tSTA PTR I\n");
                 break;
             case '.':
                 printf("\t\tLDA PTR I\n"\
